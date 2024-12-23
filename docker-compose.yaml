@@ -1,0 +1,38 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: ./api
+    restart: always
+    user: node
+    volumes:
+      - ./api/:/usr/src/app
+    working_dir: /usr/src/app
+    ports:
+      - 3000:3000
+    networks:
+      - postgres-network
+  postgres:
+      image: postgres:17.2
+      container_name: postgres_db
+      ports:
+        - 5432:5432
+      environment:
+        POSTGRES_USER: root
+        POSTGRES_PASSWORD: 1234
+        POSTGRES_DB: test_db
+      networks:
+        - postgres-network
+  pg_admin:
+    image: dpage/pgadmin4
+    ports:
+      - 3001:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@test.ru
+      PGADMIN_DEFAULT_PASSWORD: root
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ES6",
+    "module": "commonjs",
+    "lib": ["ES6"],
+    "sourceMap": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "dist/*": ["./dist/*"],
+      "@/*": ["./src/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@db/*": ["./src/db/*"],
+      "@dto/*": ["./src/dto/*"],
+      "@controllers/*": ["./src/controllers/*"],
+      "@services/*": ["./src/services/*"],
+      "@routes/*": ["./src/routes/*"]
+    },
+    "typeRoots": ["src/interfaces", "./node_modules/@types"],
+    "types": ["node"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "./src/**/*",
+    "./src/**/*.spec.ts",
+    "./src/**/*.test.ts",
+    "./*.d.ts"
+  ],
+  "tsc-alias": {
+    "replacers": {
+      "base-url": {
+        "enabled": false
+      }
+    }
+  }
+}
