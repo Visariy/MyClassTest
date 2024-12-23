@@ -3,6 +3,6 @@ export default interface LessonsRequestParamsInterface {
   status?: number;
   teacherIds?: number[];
   studentsCount?: string;
-  page: number;
-  lessonsPerPage: number;
+  page?: number;
+  lessonsPerPage?: number;
 }
